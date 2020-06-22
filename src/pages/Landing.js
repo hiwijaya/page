@@ -36,4 +36,5 @@ export default class Landing extends Component {
             </div>
         );
     }
+    
 }
