@@ -9,7 +9,8 @@ function App() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/signup" component={Auth} />
+                <Route path="/signin" render={(props) => ( <Auth {...props} form={Auth.SIGN_IN} /> )} />
+                <Route path="/signup" render={(props) => ( <Auth {...props} form={Auth.SIGN_UP}/> )} />
                 <Route path="/" component={Landing} />
             </Switch>
         </BrowserRouter>
