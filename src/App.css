@@ -76,3 +76,89 @@
 .landing-content img {
     width: 90%;
 }
+
+
+.auth {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+.auth .side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    width: 40%;
+    background-color: #9DADA3;
+    box-sizing: border-box;
+}
+.auth .side h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #FFF;
+    margin-bottom: 100px;
+}
+.auth .side img {
+    width: 80%;
+    margin: 10px 0;
+}
+.auth .side a {
+    color: #FFF;
+}
+.auth .content {
+    flex: 1;
+}
+.auth .form {
+    /* background-color: antiquewhite; */
+}
+.auth .form span {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+.auth .form span img {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
+
+form .field {
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+form .field label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+form .field input {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    padding: 5px 20px;
+    width: 500px;
+    height: 50px;
+    background-color:#F3F3F4;
+    border-radius: 0.5em;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.3s ease;
+}
+form .field input:hover {
+    outline: none;
+    background: transparent;
+    border: 0.5px solid #F3F3F4;
+    box-shadow: 0 0 7px #9DADA3;
+}
+form .agree {
+    margin: 20px 0;
+    font-size: 0.9em;
+}
+form .chorizontal a {
+    margin-left: 20px;
+}

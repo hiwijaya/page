@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { useHistory } from 'react-router-dom';
 import Brand from '../components/Brand';
 import Button from '../components/Button';
 import illustration from '../images/illustration-1.png';
 
 export default class Landing extends Component {
+
+    navigateTo(path){
+
+        this.props.history.push(path);
+
+    }
 
     render() {
         return (
@@ -12,8 +19,8 @@ export default class Landing extends Component {
                     <Brand />
                     <div className="landing-menu">
                         <a href="/about">About</a>
-                        <a href="/signin">Sign In</a>
-                        <Button title={'Register'} />
+                        <a href="/signup">Sign In</a>
+                        <Button title={'Register'} onClick={() => this.navigateTo('/signup')}/>
                     </div>
                 </div>
                 <div className="landing-content">
@@ -24,7 +31,7 @@ export default class Landing extends Component {
                             your browser is <br/>
                             not enough.
                         </h1>
-                        <Button title={'Get Started'}/>
+                        <Button title={'Get Started'} onClick={() => this.navigateTo('/signup')}/>
                     </div>
                     <div className="column illustration">
                         <img src={illustration} alt="Illustration"/>
