@@ -33,6 +33,13 @@
     font-size: 0.8em;
     font-weight: 700;
 }
+.separator {
+    content: '';
+    border-right: 1.5px solid #5F6368;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 20px;
+}
 
 
 .page {
@@ -166,4 +173,46 @@ form .agree a {
 form .buttons a {
     font-weight: 700;
     margin-left: 20px;
+}
+
+
+.dashboard {
+
+}
+.header-box {
+    border-bottom: 1px solid #BDC3C7;
+}
+.header-box .header-wrapper {
+    width: 90%;
+    max-width: 1500px;
+    height: 100px;
+    margin: auto;
+}
+.header-wrapper .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 200px;
+    padding-left: 50px;
+    height: 100px;
+}
+.header .option {
+    display: inline-flex;
+    justify-content: flex-end;
+    flex: 1;
+    font-weight: 700;
+}
+.header .option .profile {
+
+}
+.header .option .signout {
+    color: #5F6368;
+}
+.avatar {
+    position: absolute;
+    top: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
 }
