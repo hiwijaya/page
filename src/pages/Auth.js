@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../components/Button';
+import FirebaseService from '../services/FirebaseService';
 import illustration from '../images/illustration-2.png';
 import logo from '../images/logo.png';
 
@@ -12,10 +13,16 @@ export default class Auth extends Component {
         super(props);
 
         this.form = props.form;
-        if (this.form == null){
+        if (this.form === null){
             this.form = this.SIGN_UP;
         }
+
+        this.firebaseService = new FirebaseService();
         
+    }
+
+    signup(){
+        this.firebaseService.signup('hiwijaya', 'wijaya.jstation@gmail.com', 'mesosfer');
     }
 
 
@@ -76,7 +83,7 @@ export default class Auth extends Component {
                                 <a href="/terms">Terms and Conditions</a>.
                             </p>
                         <div className="buttons">
-                            <Button title={'Sign Up'} />
+                            <Button title={'Sign Up'} onClick={() => this.signup()}/>
                             <a href="/signin">Have an account?</a>
                         </div>
                     </form>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { useHistory } from 'react-router-dom';
 import Brand from '../components/Brand';
 import Button from '../components/Button';
 import illustration from '../images/illustration-1.png';
