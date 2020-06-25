@@ -1,10 +1,11 @@
-.button {
+.button-shadow {
     display: inline-block;
     border: none;
     padding: 15px 30px;
     outline: none;
     letter-spacing: 0.5px;
     text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700;
     color: #FFF;
     background-color: #9DADA3;
@@ -13,6 +14,26 @@
     transition: all 0.3s ease;
     cursor: pointer;
 }
-button:hover, .button:hover {
+.button-shadow:hover {
     box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+}
+
+.button-outline {
+    display: inline-block;
+    padding: 10px 20px;
+    outline: none;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: #5F6368;
+    border: 1.5px solid #BDC3C7;
+    border-radius: 0.5em;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.button-outline:hover {
+    background-color: #F3F3F4;
+    border: 1.5px solid #F3F3F4;
 }

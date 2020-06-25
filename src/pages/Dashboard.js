@@ -10,9 +10,30 @@ export default class Dashboard extends Component {
         super(props);
 
         this.state = {
-            signedInMode: false
+            signedInMode: true
         }
 
+    }
+
+    renderHeaderOption() {
+        if(this.state.signedInMode){
+            return (
+                <div className="option">
+                    <a href="/dashboard">hiwijaya</a>
+                    <span className="separator" />
+                    <a href="#" className="signout">Sign Out</a>
+                </div>
+            );
+        }
+        else{
+            return (
+                <div className="option">
+                    <a href="/dashboard">hiwijaya</a>
+                    <span className="separator" />
+                    <Button title={'REGISTER'}/>
+                </div>
+            );
+        }
     }
 
     render() {
@@ -23,11 +44,7 @@ export default class Dashboard extends Component {
                         <img src={avatar} className="avatar" alt="avatar" />
                         <div className="header">
                             <Brand />
-                            <div className="option">
-                                <a href="/dashboard">hiwijaya</a>
-                                <span className="separator" />
-                                <a href="#" className="signout">Sign Out</a>
-                            </div>
+                            {this.renderHeaderOption()}
                         </div>
                     </div>
                 </div>

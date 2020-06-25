@@ -35,9 +35,8 @@
 }
 .separator {
     content: '';
-    border-right: 1.5px solid #5F6368;
+    border-left: 1.5px solid #5F6368;
     height: 20px;
-    line-height: 20px;
     margin: 0 20px;
 }
 
@@ -199,6 +198,7 @@ form .buttons a {
 .header .option {
     display: inline-flex;
     justify-content: flex-end;
+    align-items: center;
     flex: 1;
     font-weight: 700;
 }
