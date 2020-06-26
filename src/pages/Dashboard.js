@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Brand from '../components/Brand';
+import Board from '../components/Board';
 import * as Lib from '../utils/Lib';
 import Button from '../components/Button';
 import avatar from '../images/avatar.png';
@@ -11,14 +12,33 @@ export default class Dashboard extends Component {
         super(props);
 
         this.state = {
-            signedInMode: true
+            signedInMode: true,
+            bookmarks: []
         }
 
     }
 
-    async getFavicon(){
+    componentDidMount(){
+        const dummyBookmarks = [
+            {
+                title: 'Color Picker',
+                url: 'https://www.w3schools.com/colors/colors_picker.asp'
+            },
+            {
+                title: 'WebGradients',
+                url: 'https://webgradients.com/'
+            },
+            {
+                title: 'Streamline Icons',
+                url: 'https://app.streamlineicons.com/',
+            }
+        ];
 
+        this.setState({
+            bookmarks: dummyBookmarks
+        });
     }
+
 
     renderHeaderOption() {
         if(this.state.signedInMode){
@@ -57,10 +77,10 @@ export default class Dashboard extends Component {
                     <div className="content">
                         <div className="add-collection-box">
                             <span>Collections</span>
-                            <Button title="New Collection" onClick={() => this.getFavicon()}/>
+                            <Button title="New Collection"/>
                         </div>
-                        <div className="collection-grid">
-
+                        <div className="board-grid">
+                            <Board bookmarks={this.state.bookmarks}/>
                         </div>
                     </div>
                 </div>

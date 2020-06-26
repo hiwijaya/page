@@ -1,8 +1,8 @@
 
 
-export async function getFaviconUrl(link){
+export function getFaviconUrl(url){
 
-    let hostname = getHostname(link)
+    let hostname = getHostname(url)
 
     return`https://api.faviconkit.com/${hostname}/32`;
 }

@@ -1,0 +1,40 @@
+.board {
+    width: 500px;
+    padding: 20px;
+    border: 1px solid #BDC3C7;
+    border-radius: 0.3em;
+    box-sizing: border-box;
+}
+.board .title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.board .title-box span {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #000;
+}
+.board .desc {
+    font-weight: 700;
+    color: #BDC3C7;
+}
+.board .bookmarks {
+    margin: 20px 0;
+}
+.board .bookmark {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0;
+}
+.board .bookmark .favicon {
+    width: 20px;
+    height: 20px;
+}
+.board .bookmark .title {
+    font-weight: 700;
+    margin: 0 20px;
+    flex: 1;
+}

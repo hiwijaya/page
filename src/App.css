@@ -227,7 +227,6 @@ form .buttons a {
     color: #000;
 }
 
-
 .avatar {
     position: absolute;
     top: 50px;
@@ -236,6 +235,7 @@ form .buttons a {
     border-radius: 50%;
     margin-bottom: 20px;
 }
-.svg {
-    fill: #000;
+
+.board-grid{
+    margin: 25px 0;
 }
