@@ -35,9 +35,10 @@
 }
 .separator {
     content: '';
-    border-left: 1.5px solid #5F6368;
+    width: 2px;
     height: 20px;
     margin: 0 20px;
+    background-color: #BDC3C7;
 }
 
 
@@ -181,7 +182,7 @@ form .buttons a {
 .header-box {
     border-bottom: 1px solid #BDC3C7;
 }
-.header-box .header-wrapper {
+.header-box .header-wrapper, .content-wrapper {
     width: 90%;
     max-width: 1500px;
     height: 100px;
@@ -202,12 +203,31 @@ form .buttons a {
     flex: 1;
     font-weight: 700;
 }
-.header .option .profile {
-
+.header .option .setting {
+    color: #9DADA3;
 }
 .header .option .signout {
-    color: #5F6368;
+    color: #000;
 }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    padding: 25px 0;
+}
+.add-collection-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.add-collection-box span {
+    font-size: 2em;
+    font-weight: 700;
+    color: #000;
+}
+
+
 .avatar {
     position: absolute;
     top: 50px;
@@ -215,4 +235,7 @@ form .buttons a {
     height: 200px;
     border-radius: 50%;
     margin-bottom: 20px;
+}
+.svg {
+    fill: #000;
 }

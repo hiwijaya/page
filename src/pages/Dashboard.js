@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Brand from '../components/Brand';
+import * as Lib from '../utils/Lib';
 import Button from '../components/Button';
 import avatar from '../images/avatar.png';
 
@@ -15,20 +16,24 @@ export default class Dashboard extends Component {
 
     }
 
+    async getFavicon(){
+
+    }
+
     renderHeaderOption() {
         if(this.state.signedInMode){
             return (
                 <div className="option">
-                    <a href="/dashboard">hiwijaya</a>
+                    <a href="/hiwijaya/setting" className="setting">hiwijaya</a>
                     <span className="separator" />
-                    <a href="#" className="signout">Sign Out</a>
+                    <a href="#">Sign Out</a>
                 </div>
             );
         }
         else{
             return (
                 <div className="option">
-                    <a href="/dashboard">hiwijaya</a>
+                    <a href="/hiwijaya">hiwijaya</a>
                     <span className="separator" />
                     <Button title={'REGISTER'}/>
                 </div>
@@ -45,6 +50,17 @@ export default class Dashboard extends Component {
                         <div className="header">
                             <Brand />
                             {this.renderHeaderOption()}
+                        </div>
+                    </div>
+                </div>
+                <div className="content-wrapper">
+                    <div className="content">
+                        <div className="add-collection-box">
+                            <span>Collections</span>
+                            <Button title="New Collection" onClick={() => this.getFavicon()}/>
+                        </div>
+                        <div className="collection-grid">
+
                         </div>
                     </div>
                 </div>
