@@ -31,6 +31,10 @@ export default class Dashboard extends Component {
             {
                 title: 'Streamline Icons',
                 url: 'https://app.streamlineicons.com/',
+            },
+            {
+                title: 'Repulsor',
+                url: 'https://repulsor.hiwijaya.com/',
             }
         ];
 

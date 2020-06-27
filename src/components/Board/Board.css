@@ -11,7 +11,7 @@
     align-items: center;
     margin-bottom: 5px;
 }
-.board .title-box span {
+.board .title-box .title {
     font-size: 1.4em;
     font-weight: 700;
     color: #000;
@@ -28,6 +28,7 @@
     flex-direction: row;
     align-items: center;
     padding: 10px 0;
+    cursor: pointer;
 }
 .board .bookmark .favicon {
     width: 20px;
@@ -35,6 +36,20 @@
 }
 .board .bookmark .title {
     font-weight: 700;
+    color: #5F6368;
     margin: 0 20px;
     flex: 1;
+    transition: 0.3s;
+}
+.board .bookmark:hover .title {
+    color: #000;
+}
+.board .bookmark:hover .edit-button {
+    stroke: #838b91;
+}
+
+.board .edit-button {
+    padding: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
 }
