@@ -18,7 +18,7 @@ export default class Landing extends Component {
                     <Brand />
                     <div className="landing-menu">
                         <a href="/about">About</a>
-                        <a href="/signup">Sign In</a>
+                        <a href="/signin">Sign In</a>
                         <Button title={'Register'} onClick={() => this.navigateTo('/signup')}/>
                     </div>
                 </div>

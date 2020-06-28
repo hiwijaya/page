@@ -114,24 +114,27 @@
 .auth .side a {
     color: #FFF;
 }
-.auth .content {
+.auth .auth-content {
     flex: 1;
 }
-.auth .form {
-    /* background-color: antiquewhite; */
-}
+
 .auth .form span {
     display: inline-flex;
     align-items: center;
     font-size: 1.6em;
     font-weight: 700;
     color: #000;
-    margin-bottom: 20px;
 }
 .auth .form span img {
     width: 32px;
     height: 32px;
     margin-right: 5px;
+}
+
+.error-message {
+    color: #FF6C81;
+    font-weight: 700;
+    padding: 20px 0;
 }
 
 form .field {

@@ -26,16 +26,16 @@ export default class FirebaseService {
 
     }
 
-    async signup(username, email, password){
+    async signup(username, email, password, onSuccess, onError){
         try{
             const response = await this.auth.createUserWithEmailAndPassword(email, password);
-            console.log(response);
 
             // TODO: add more logic here
 
+            onSuccess(response);
         }
-        catch(err){
-            console.log(err);
+        catch(error){
+            onError(error);
         }
     }
 

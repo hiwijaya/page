@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './Board.css';
 import Button from '../Button';
 import * as Lib from '../../utils/Lib';
-import edit from '../../images/edit.svg';
-import trash from '../../images/trash.svg';
 
 
 export default class Board extends Component {
