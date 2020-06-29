@@ -5,7 +5,7 @@ import * as Lib from '../utils/Lib';
 import illustration from '../images/illustration-2.png';
 import logo from '../images/logo.png';
 
-export default class Auth extends Component {
+export default class SignUp extends Component {
 
     constructor(props) {
         super(props);

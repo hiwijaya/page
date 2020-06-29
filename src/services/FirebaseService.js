@@ -34,8 +34,18 @@ export default class FirebaseService {
 
             onSuccess(response);
         }
-        catch(error){
-            onError(error);
+        catch(e){
+            onError(e);
+        }
+    }
+
+    async signin(email, password, onSuccess, onError){
+        try{
+            const response = await this.auth.signInWithEmailAndPassword(email, password);
+            onSuccess(response);
+        }
+        catch(e){
+            onError(e);
         }
     }
 

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Button from '../components/Button';
 import FirebaseService from '../services/FirebaseService';
+import * as Lib from '../utils/Lib';
 import illustration from '../images/illustration-2.png';
 import logo from '../images/logo.png';
 
-export default class Auth extends Component {
+export class SignIn extends Component {
 
     constructor(props) {
         super(props);
@@ -19,9 +21,43 @@ export default class Auth extends Component {
 
     }
 
-    signup() {
-        this.firebaseService.signup('hiwijaya', 'wijaya.jstation@gmail.com', 'mesosfer');
+    signin() {
+
+        if(!this.validInput()){
+            return;
+        }
+
+        this.firebaseService.signin(
+            this.state.email, this.state.password, 
+            (res) => {
+                console.log(res);
+                this.props.history.push("/dashboard");
+            },
+            (e) => {
+                this.setState({message: e.message});
+            });
     }
+
+    validInput() {
+
+        if (this.state.email === '') {
+            this.setState({ message: 'Email cannot be empty.' });
+            return false;
+        }
+        if (!Lib.isValidEmail(this.state.email)) {
+            this.setState({ message: 'Email is not valid.' });
+            return false;
+        }
+        if (this.state.password === '') {
+            this.setState({ message: 'Password cannot be empty.' });
+            return false;
+        }
+
+        return true;
+
+    }
+
+
 
 
     renderForm() {
@@ -47,7 +83,7 @@ export default class Auth extends Component {
                                 <a href="/terms">Terms and Conditions</a>.
                             </p>
                     <div className="buttons">
-                        <Button title={'Sign In'} />
+                        <Button title={'Sign In'} onClick={() => this.signin()} />
                         <a href="/signup">Not a member?</a>
                     </div>
                 </form>
@@ -77,3 +113,4 @@ export default class Auth extends Component {
         );
     }
 }
+export default withRouter(SignIn);
