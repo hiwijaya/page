@@ -26,7 +26,7 @@ export default class FirebaseService {
 
     }
 
-    async signup(username, email, password, onSuccess, onError){
+    async signUp(username, email, password, onSuccess, onError){
         try{
             const response = await this.auth.createUserWithEmailAndPassword(email, password);
 
@@ -39,7 +39,7 @@ export default class FirebaseService {
         }
     }
 
-    async signin(email, password, onSuccess, onError){
+    async signIn(email, password, onSuccess, onError){
         try{
             const response = await this.auth.signInWithEmailAndPassword(email, password);
             onSuccess(response);
@@ -48,5 +48,30 @@ export default class FirebaseService {
             onError(e);
         }
     }
+
+    async signOut(onSuccess){
+        try{
+            await this.auth.signOut();
+            onSuccess();
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    isSignedIn(){
+        const currentUser = this.auth.currentUser;
+        console.log('CURRENT USER:');
+        console.log(currentUser);
+
+        if(currentUser){
+            return true;
+        }
+        
+        return false;
+
+    }
+
+
 
 }
