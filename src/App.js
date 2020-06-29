@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import PrivateRoute from './components/PrivateRoute';
 import Landing from './pages/Landing';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
@@ -14,7 +15,7 @@ function App() {
             <Switch>
                 <Route path="/signin" component={SignIn} />
                 <Route path="/signup" component={SignUp} />
-                <Route path="/dashboard" component={Dashboard} />
+                <PrivateRoute path="/dashboard" component={Dashboard} />
                 <Route path="/" component={Landing} />
             </Switch>
         </BrowserRouter>

@@ -59,6 +59,7 @@ export default class FirebaseService {
         }
     }
 
+    // TODO: change to hasAuthority(id) to check user authority
     isSignedIn(){
         const currentUser = this.auth.currentUser;
         console.log('CURRENT USER:');
