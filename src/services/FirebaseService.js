@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/firestore';
+import 'firebase/database';
 
 
 export default class FirebaseService {
@@ -25,7 +25,7 @@ export default class FirebaseService {
         
         
         this.auth = firebase.auth();
-        this.firestore = firebase.firestore();
+        this.database = firebase.database();
 
     }
 
