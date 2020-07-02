@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import firebaseApp from '../services/FirebaseService';
 import Brand from '../components/Brand';
 import Board from '../components/Board';
@@ -7,19 +7,13 @@ import Button from '../components/Button';
 import avatar from '../images/avatar.png';
 
 
-export default class Dashboard extends Component {
+const Dashboard = () => {
 
-    constructor(props){
-        super(props);
+    const [signedIn, isSignedIn] = useState(true);
+    const [bookmarks, setBookmarks] = useState([]);
 
-        this.state = {
-            signedInMode: true,
-            bookmarks: []
-        }
 
-    }
-
-    componentDidMount(){
+    useEffect(() => {
         const dummyBookmarks = [
             {
                 title: 'Color Picker',
@@ -39,62 +33,58 @@ export default class Dashboard extends Component {
             }
         ];
 
-        this.setState({
-            bookmarks: dummyBookmarks
-        });
-    }
+        setBookmarks(dummyBookmarks);
+    });
 
-    async signOut(){
+    const onSignOut = async () => {
         await firebaseApp.auth().signOut();
     }
 
-
-    renderHeaderOption() {
-        if(this.state.signedInMode){
-            return (
-                <div className="option">
-                    <a href="/hiwijaya/setting" className="setting">hiwijaya</a>
-                    <span className="separator" />
-                    <a href="#" onClick={() => this.signOut()}>Sign Out</a>
-                </div>
-            );
-        }
-        else{
-            return (
-                <div className="option">
-                    <a href="/hiwijaya">hiwijaya</a>
-                    <span className="separator" />
-                    <Button title={'REGISTER'}/>
-                </div>
-            );
-        }
+    let headerOption = null;
+    if(signedIn){
+        headerOption = (
+            <div className="option">
+                <a href="/hiwijaya/setting" className="setting">hiwijaya</a>
+                <span className="separator" />
+                <a href="#" onClick={onSignOut}>Sign Out</a>
+            </div>
+        );
     }
-
-    render() {
-        return (
-            <div className="dashboard">
-                <div className="header-box">
-                    <div className="header-wrapper">
-                        <img src={avatar} className="avatar" alt="avatar" />
-                        <div className="header">
-                            <Brand />
-                            {this.renderHeaderOption()}
-                        </div>
-                    </div>
-                </div>
-                <div className="content-wrapper">
-                    <div className="content">
-                        <div className="add-collection-box">
-                            <span>Collections</span>
-                            <Button title="New Collection" />
-                        </div>
-                        <div className="board-grid">
-                            <Board bookmarks={this.state.bookmarks}/>
-                        </div>
-                    </div>
-                </div>
+    else{
+        headerOption = (
+            <div className="option">
+                <a href="/hiwijaya">hiwijaya</a>
+                <span className="separator" />
+                <Button title={'REGISTER'} />
             </div>
         );
     }
 
+
+    return (
+        <div className="dashboard">
+            <div className="header-box">
+                <div className="header-wrapper">
+                    <img src={avatar} className="avatar" alt="avatar" />
+                    <div className="header">
+                        <Brand />
+                        {headerOption}
+                    </div>
+                </div>
+            </div>
+            <div className="content-wrapper">
+                <div className="content">
+                    <div className="add-collection-box">
+                        <span>Collections</span>
+                        <Button title="New Collection" />
+                    </div>
+                    <div className="board-grid">
+                        <Board bookmarks={bookmarks} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+
 }
+export default Dashboard;
