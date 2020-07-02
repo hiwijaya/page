@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import firebaseApp from '../services/FirebaseService';
 import Brand from '../components/Brand';
 import Board from '../components/Board';
 import * as Lib from '../utils/Lib';
 import Button from '../components/Button';
 import avatar from '../images/avatar.png';
-
-import FirebaseService from '../services/FirebaseService';
 
 
 export default class Dashboard extends Component {
@@ -17,8 +16,6 @@ export default class Dashboard extends Component {
             signedInMode: true,
             bookmarks: []
         }
-
-        this.firebaseService = new FirebaseService();
 
     }
 
@@ -47,10 +44,8 @@ export default class Dashboard extends Component {
         });
     }
 
-    signOut(){
-        this.firebaseService.signOut(() => {
-            window.location.href= '/';
-        });
+    async signOut(){
+        await firebaseApp.auth().signOut();
     }
 
 
@@ -91,10 +86,7 @@ export default class Dashboard extends Component {
                     <div className="content">
                         <div className="add-collection-box">
                             <span>Collections</span>
-                            <Button title="New Collection" onClick={() => {
-                                let isSignedIn = this.firebaseService.isSignedIn();
-                                console.log("UDA SIGNED IN: " + isSignedIn)
-                            }}/>
+                            <Button title="New Collection" />
                         </div>
                         <div className="board-grid">
                             <Board bookmarks={this.state.bookmarks}/>

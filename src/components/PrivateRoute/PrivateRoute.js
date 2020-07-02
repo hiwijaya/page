@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import FirebaseService from '../../services/FirebaseService';
+import {AuthContext} from '../../utils/AuthProvider';
 
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-    return (
-        <Route {...rest} render={props => (
-            new FirebaseService().isSignedIn() ?
-                <Component {...props} /> :
-                <Redirect to="/signin" />
-        )} />
+const PrivateRoute = ({component: RouteComponent, ...rest}) => {
+    const {currentUser} = useContext(AuthContext);
+
+    return(
+        <Route {...rest} 
+            render={ routeProps => !!currentUser ? <RouteComponent {...routeProps}/> : <Redirect to="/signin"/>}/>
     );
-};
+
+}
 export default PrivateRoute;
