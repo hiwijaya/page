@@ -52,7 +52,20 @@ const SignUp = ({history}) => {
         }
 
         try {
-            await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
+            const response = await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
+            
+            const uid = response.user.uid;
+
+            await firebaseApp.database().ref(`users/${uid}`).set({
+                username: username,
+                email: email,
+                profile_picture: ''
+            });
+
+            await firebaseApp.database().ref('usernames').set({
+                [username]: uid
+            });
+
             history.push('/dashboard');
         }
         catch (e) {
@@ -60,6 +73,7 @@ const SignUp = ({history}) => {
         }
 
     }
+
 
 
     return (
