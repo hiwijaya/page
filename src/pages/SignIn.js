@@ -29,14 +29,12 @@ const SignIn = ({history}) => {
 
     const onSignIn = async () => {
 
-        console.log('ON SIGNIN TRIGGERED!!!!');
-
         if(!validInput()){
             return;
         }
 
         try{
-            const response = await firebaseApp.auth().signInWithEmailAndPassword(email, password);
+            await firebaseApp.auth().signInWithEmailAndPassword(email, password);
             history.push('/dashboard');
         }
         catch(e){

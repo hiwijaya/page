@@ -21,8 +21,12 @@ const SignUp = ({history}) => {
             setMessage('Username is required.');
             return false;
         }
+        if(!Lib.isValidUsername(username)){
+            setMessage('Username is not valid.');
+            return false;
+        }
         if (email === '') {
-            setMessage('Email cannot be empty');
+            setMessage('Email cannot be empty.');
             return false;
         }
         if (!Lib.isValidEmail(email)) {
@@ -30,7 +34,7 @@ const SignUp = ({history}) => {
             return false;
         }
         if (password === '') {
-            setMessage('Password is required');
+            setMessage('Password is required.');
             return false;
         }
         if (password.length < 6) {
@@ -38,7 +42,7 @@ const SignUp = ({history}) => {
             return false;
         }
         if (password !== confirmPassword) {
-            setMessage('Password is not match');
+            setMessage('Password is not match.');
             return false;
         }
         
@@ -62,9 +66,9 @@ const SignUp = ({history}) => {
                 profile_picture: ''
             });
 
-            await firebaseApp.database().ref('usernames').set({
+            await firebaseApp.database().ref('usernames').update({
                 [username]: uid
-            });
+            })
 
             history.push('/dashboard');
         }

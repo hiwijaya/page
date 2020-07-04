@@ -35,7 +35,7 @@ export function isValidEmail(email){
         return false;
     }
 
-    let pattern = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    const pattern = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
     if(!pattern.test(email)){
         return false;
@@ -43,4 +43,20 @@ export function isValidEmail(email){
 
     return true;
     
+}
+
+export function isValidUsername(username){
+
+    if(username === null || username === ''){
+        return false;
+    }
+
+    const pattern = new RegExp(/^[a-z]{3,16}$/);
+
+    if(!pattern.test(username)){
+        return false;
+    }
+
+    return true;
+
 }
