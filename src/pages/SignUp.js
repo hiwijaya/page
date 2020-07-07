@@ -17,6 +17,7 @@ const SignUp = ({history}) => {
 
 
     const validInput = () => {
+
         if(username === ''){
             setMessage('Username is required.');
             return false;
@@ -56,6 +57,12 @@ const SignUp = ({history}) => {
         }
 
         try {
+
+            const existingUsername = await firebaseApp.database().ref(`usernames/${username}`).once('value');
+            if(existingUsername.val() !== null){
+                throw new Error('Username has been taken.');
+            }
+
             const response = await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
             
             const uid = response.user.uid;
